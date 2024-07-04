@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -11,9 +12,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="senac.senacfx.controller.MainViewController">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="senac.senacfx.controller.MainViewController">
     <content>
-        <VBox prefHeight="405.0" prefWidth="566.0">
+        <VBox prefHeight="412.0" prefWidth="574.0">
             <children>
                 <MenuBar>
                     <menus>
@@ -41,6 +42,7 @@
                   <Insets />
                </opaqueInsets>
             </TextField>
+            <Button mnemonicParsing="false" onAction="#onMenuItemSellerAction" text="Button" />
             <ImageView fitHeight="200.0" fitWidth="200.0">
                <image>
                   <Image url="@../esdeath.jpg" />
