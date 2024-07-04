@@ -18,15 +18,15 @@ public class Main extends Application {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/MainView.fxml"));
             ScrollPane scrollPane = loader.load();
 
-            //macete para a barra de cima ficar ate o fim da tela
             scrollPane.setFitToHeight(true);
             scrollPane.setFitToWidth(true);
 
-
+            scrollPane.setPrefSize(950, 700);
             mainScene = new Scene(scrollPane);
             primaryStage.setScene(mainScene);
             primaryStage.setTitle("Titulo do seu sistema");
             primaryStage.show();
+            primaryStage.setResizable(false);
         } catch (IOException e) {
             e.printStackTrace();
 
