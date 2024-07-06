@@ -1,0 +1,29 @@
+.table-view {
+    -fx-background-color: #121212; /* Cor de fundo da TableView */
+    -fx-table-cell-border-color: transparent; /* Remover bordas das células */
+    /*-fx-padding: 10; */
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #121212; /* Cor de fundo do cabeçalho */
+}
+
+.table-view .column-header,
+.table-view .table-column-header {
+    -fx-background-color: #121212; /* Cor de fundo do cabeçalho */
+    -fx-text-fill: white; /* Cor do texto do cabeçalho */
+    -fx-font-size: 14px; /* Tamanho da fonte */
+    -fx-alignment: CENTER; /* Alinhamento do texto */
+}
+
+.table-view .table-cell {
+    -fx-background-color: #121212; /* Cor de fundo das células */
+    -fx-text-fill: #ffffff; /* Cor do texto das células */
+    -fx-font-size: 12px; /* Tamanho da fonte */
+    -fx-alignment: CENTER; /* Alinhamento do texto */
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #ffdd00; /* Cor de fundo da linha selecionada */
+    -fx-text-fill: white; /* Cor do texto da linha selecionada */
+}

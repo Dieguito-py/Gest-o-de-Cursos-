@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="300.0" maxWidth="800.0" minHeight="300.0" minWidth="800.0" prefHeight="300.0" prefWidth="800.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="senac.senacfx.controller.SellerListController">
+<VBox maxHeight="390.0" maxWidth="800.0" minHeight="300.0" minWidth="800.0" prefHeight="390.0" prefWidth="800.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="senac.senacfx.controller.SellerListController">
          <children>
-            <Label text="Registro de Vendedores">
+            <Label text="ALUNOS" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -22,12 +22,12 @@
                   <Insets bottom="10.0" left="20.0" top="10.0" />
                </padding>
             </Label>
-      <ToolBar prefHeight="40.0" prefWidth="200.0" stylesheets="@style.css">
+      <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #121212;" stylesheets="@style.css">
         <items>
-          <Button fx:id="btNew" mnemonicParsing="false" onAction="#onBtNewAction" styleClass="button-new" text="Novo" />
+          <Button fx:id="btNew" mnemonicParsing="false" onAction="#onBtNewAction" styleClass="button-new" text="Novo" textFill="WHITE" />
         </items>
       </ToolBar>
-      <TableView fx:id="tableViewSeller" prefHeight="200.0" prefWidth="200.0" stylesheets="@style.css">
+      <TableView fx:id="tableViewSeller" prefHeight="302.0" prefWidth="638.0" stylesheets="@style/studentsTest.css" VBox.vgrow="ALWAYS">
         <columns>
           <TableColumn fx:id="tableColumnId" prefWidth="24.0" text="Id" />
           <TableColumn fx:id="tableColumnName" prefWidth="96.0" text="Nome" />
@@ -39,4 +39,7 @@
         </columns>
       </TableView>
          </children>
+   <padding>
+      <Insets left="22.0" right="22.0" />
+   </padding>
 </VBox>

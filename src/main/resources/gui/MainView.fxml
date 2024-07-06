@@ -12,22 +12,22 @@
          <left>
             <VBox alignment="CENTER" prefHeight="503.0" prefWidth="210.0" style="-fx-background-color: #1E1E1E;" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" text="HOME">
+                  <Button mnemonicParsing="false" styleClass="transparent-button" stylesheets="@style/mainView.css" text="HOME">
                      <VBox.margin>
                         <Insets bottom="12.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#onMenuItemSellerAction" text="ALUNOS">
+                  <Button mnemonicParsing="false" onAction="#onMenuItemSellerAction" styleClass="transparent-button" stylesheets="@style/mainView.css" text="ALUNOS">
                      <VBox.margin>
                         <Insets bottom="12.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#onMenuItemDepartmentAction" text="CURSOS">
+                  <Button mnemonicParsing="false" onAction="#onMenuItemDepartmentAction" styleClass="transparent-button" stylesheets="@style/mainView.css" text="CURSOS">
                      <VBox.margin>
                         <Insets bottom="12.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#onMenuItemAboutAction" text="SOBRE">
+                  <Button mnemonicParsing="false" onAction="#onMenuItemAboutAction" styleClass="transparent-button" stylesheets="@style/mainView.css" text="SOBRE">
                      <VBox.margin>
                         <Insets bottom="12.0" />
                      </VBox.margin>
