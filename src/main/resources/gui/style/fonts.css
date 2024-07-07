@@ -1,0 +1,7 @@
+.label {
+    -fx-font-family: "Montserrat";
+    -fx-font-size: 23x;
+    -fx-font-style: italic;
+    /*-fx-font-weight: bold;*/
+    -fx-text-transform: uppercase;
+}

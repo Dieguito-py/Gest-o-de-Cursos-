@@ -7,12 +7,20 @@
     -fx-background-color: #121212;
 }
 
+/*Estilo dos Botoes do Menu Lateral */
+
 .transparent-button {
     -fx-background-color: transparent;
     -fx-text-fill: #ffffff;
-    -fx-font-family: "Arial";
-    -fx-font-size: 20px;
+    -fx-font-family: "Montserrat";
+    -fx-font-size: 23px;
     -fx-padding: 10 0 5  0;
+    -fx-border-width: 0 0 0 0;
+    -fx-border-color: #FFC90E;
+    -fx-border-style: solid;
+}
+
+.transparent-button:focused {
     -fx-border-width: 0 0 2 0;
     -fx-border-color: #FFC90E;
     -fx-border-style: solid;
