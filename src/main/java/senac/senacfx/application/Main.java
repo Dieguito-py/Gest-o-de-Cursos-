@@ -21,7 +21,7 @@ public class Main extends Application {
             scrollPane.setFitToHeight(true);
             scrollPane.setFitToWidth(true);
 
-            scrollPane.setPrefSize(950, 700);
+            scrollPane.setPrefSize(1000, 700);
             mainScene = new Scene(scrollPane);
             primaryStage.setScene(mainScene);
             primaryStage.setTitle("Titulo do seu sistema");

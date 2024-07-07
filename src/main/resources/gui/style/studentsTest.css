@@ -16,13 +16,17 @@
     -fx-padding: 0 0 5px 0;
 }
 
-.table-view .column-header {
+.table-view .column-header,
+.table-view .column-header .label{
     -fx-background-color: transparent;
+    -fx-text-fill: #ffffff; /* Cor do texto do cabeçalho */
+    /*-fx-font-size: 20px;*/
 }
 
 .table-view .table-cell{
     -fx-border-color: transparent;
     -fx-padding: 2 0 2 10px;
+    -fx-text-fill: white; /* Cor do texto do cabeçalho */
 }
 .table-row-cell:hover {
     -fx-background-color: #93f9b911;
