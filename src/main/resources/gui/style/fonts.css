@@ -5,3 +5,11 @@
     /*-fx-font-weight: bold;*/
     -fx-text-transform: uppercase;
 }
+
+.label-body {
+    -fx-font-family: "Montserrat";
+    -fx-font-size: 17;
+    /*-fx-font-style: bold;*/
+    /*-fx-font-weight: bold;*/
+    -fx-text-transform: uppercase;
+}

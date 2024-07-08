@@ -32,7 +32,11 @@ public class MainViewController implements Initializable {
 
     @FXML
     public void onMenuItemHomeAction(){
-        loadView("/gui/MainView.fxml", x -> {});
+        Scene mainScene = Main.getMainScene();
+        ScrollPane mainScrollPane = (ScrollPane) mainScene.getRoot();
+        BorderPane mainBorderPane = (BorderPane) mainScrollPane.getContent();
+        VBox mainVBox = (VBox) mainBorderPane.getCenter();
+        mainVBox.getChildren().clear();
     }
 
     @FXML
