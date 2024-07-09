@@ -12,17 +12,16 @@ import senac.senacfx.gui.listeners.DataChangeListener;
 import senac.senacfx.gui.util.Alerts;
 import senac.senacfx.gui.util.Constraints;
 import senac.senacfx.gui.util.Utils;
-import senac.senacfx.model.entities.Department;
+import senac.senacfx.model.entities.Course;
 import senac.senacfx.model.exceptions.ValidationException;
 import senac.senacfx.model.services.DepartmentService;
 
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.*;
 
 public class DepartmentFormController implements Initializable {
 
-    private Department entity;
+    private Course entity;
 
     private DepartmentService service;
 
@@ -44,7 +43,7 @@ public class DepartmentFormController implements Initializable {
     private Button btCancel;
 
     //Contolador agora tem uma instancia do departamento
-    public void setDepartment(Department entity){
+    public void setDepartment(Course entity){
         this.entity = entity;
     }
 
@@ -84,8 +83,8 @@ public class DepartmentFormController implements Initializable {
         }
     }
 
-    private Department getFormData() {
-        Department obj = new Department();
+    private Course getFormData() {
+        Course obj = new Course();
 
         ValidationException exception = new ValidationException("Erro na validacao");
 

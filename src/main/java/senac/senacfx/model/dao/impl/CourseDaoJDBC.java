@@ -2,8 +2,8 @@ package senac.senacfx.model.dao.impl;
 
 import senac.senacfx.db.DB;
 import senac.senacfx.db.DbException;
-import senac.senacfx.model.dao.DepartmentDao;
-import senac.senacfx.model.entities.Department;
+import senac.senacfx.model.dao.CourseDao;
+import senac.senacfx.model.entities.Course;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,18 +11,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DepartmentDaoJDBC implements DepartmentDao {
+public class CourseDaoJDBC implements CourseDao {
     private Connection conn;
 
-    public DepartmentDaoJDBC(Connection conn) {
+    public CourseDaoJDBC(Connection conn) {
         this.conn = conn;
     }
 
     @Override
-    public void insert(Department obj) {
+    public void insert(Course obj) {
         PreparedStatement st = null;
         try {
-            st = conn.prepareStatement("insert into department " +
+            st = conn.prepareStatement("insert into course " +
                     "(Name) " +
                     "values (?) ",
                     Statement.RETURN_GENERATED_KEYS);
@@ -50,11 +50,11 @@ public class DepartmentDaoJDBC implements DepartmentDao {
     }
 
     @Override
-    public void update(Department obj) {
+    public void update(Course obj) {
 
         PreparedStatement st = null;
         try {
-            st = conn.prepareStatement("update department " +
+            st = conn.prepareStatement("update course " +
                             "set Name = ? " +
                             "where Id = ?");
 
@@ -78,14 +78,14 @@ public class DepartmentDaoJDBC implements DepartmentDao {
     public void deleteById(Integer id) {
         PreparedStatement st = null;
         try{
-            st = conn.prepareStatement("delete from department where Id = ?");
+            st = conn.prepareStatement("delete from course where Id = ?");
 
             st.setInt(1, id);
 
             int rowsAffected = st.executeUpdate();
 
             if (rowsAffected == 0){
-                throw new DbException("Departamento inexistente!");
+                throw new DbException("Course inexistente!");
             }
 
         } catch (SQLException e){
@@ -96,19 +96,19 @@ public class DepartmentDaoJDBC implements DepartmentDao {
     }
 
     @Override
-    public Department findById(Integer id) {
+    public Course findById(Integer id) {
 
         PreparedStatement st = null;
         ResultSet rs = null;
         try{
             st = conn.prepareStatement("" +
-                    "select * from department " +
+                    "select * from course " +
                     "where Id = ?");
 
             st.setInt(1, id);
             rs = st.executeQuery();
             if (rs.next()){
-                Department dep = instantiateDepartment(rs);
+                Course dep = instantiateDepartment(rs);
                 return dep;
 
             }
@@ -122,31 +122,31 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 
     }
 
-    private Department instantiateDepartment(ResultSet rs) throws SQLException {
-        Department dep = new Department();
+    private Course instantiateDepartment(ResultSet rs) throws SQLException {
+        Course dep = new Course();
         dep.setId(rs.getInt("Id"));
         dep.setName(rs.getString("Name"));
         return dep;
     }
 
     @Override
-    public List<Department> findAll() {
+    public List<Course> findAll() {
 
         PreparedStatement st = null;
         ResultSet rs = null;
         try{
             st = conn.prepareStatement("" +
-                    "select * from department "+
+                    "select * from course "+
                     "order by Name");
 
             rs = st.executeQuery();
 
-            List<Department> list = new ArrayList<>();
-            Map<Integer, Department> map = new HashMap<>();
+            List<Course> list = new ArrayList<>();
+            Map<Integer, Course> map = new HashMap<>();
 
             while (rs.next()){
 
-                Department dep = map.get(rs.getInt("Id"));
+                Course dep = map.get(rs.getInt("Id"));
 
                 if (dep == null){
                     dep = instantiateDepartment(rs);

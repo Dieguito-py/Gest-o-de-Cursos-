@@ -3,7 +3,7 @@ package senac.senacfx.model.entities;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Seller implements Serializable {
+public class Student implements Serializable {
     private static final long serialVersionUID = 1L;
     private Integer id;
     private String name;
@@ -11,12 +11,12 @@ public class Seller implements Serializable {
     private Date birthDate;
     private Double baseSalary;
 
-    private Department department;
+    private Course department;
 
-    public Seller() {
+    public Student() {
     }
 
-    public Seller(Integer id, String name, String email, Date birthDate, Double baseSalary, Department department) {
+    public Student(Integer id, String name, String email, Date birthDate, Double baseSalary, Course department) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -65,11 +65,11 @@ public class Seller implements Serializable {
         this.baseSalary = baseSalary;
     }
 
-    public Department getDepartment() {
+    public Course getDepartment() {
         return department;
     }
 
-    public void setDepartment(Department department) {
+    public void setDepartment(Course department) {
         this.department = department;
     }
 
@@ -81,7 +81,7 @@ public class Seller implements Serializable {
             return false;
         if (getClass() != o.getClass())
             return false;
-        Seller other = (Seller) o;
+        Student other = (Student) o;
         if (id == null){
             if (other.id != null)
                 return false;
@@ -101,7 +101,7 @@ public class Seller implements Serializable {
 
     @Override
     public String toString() {
-        return "Seller{" +
+        return "Student{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +

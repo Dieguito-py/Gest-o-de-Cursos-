@@ -1,29 +1,28 @@
 package senac.senacfx.model.services;
 
 import senac.senacfx.model.dao.DaoFactory;
-import senac.senacfx.model.dao.DepartmentDao;
-import senac.senacfx.model.entities.Department;
+import senac.senacfx.model.dao.CourseDao;
+import senac.senacfx.model.entities.Course;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class DepartmentService {
 
     //dependencia injetada usando padrao factory
-    private DepartmentDao dao = DaoFactory.createDepartmentDao();
+    private CourseDao dao = DaoFactory.createDepartmentDao();
 
-    public List<Department> findAll() {
+    public List<Course> findAll() {
         return dao.findAll();
 
         //Dados MOCK (fake) so para testar, sem puxar do banco por hora
-//        List<Department> list = new ArrayList<>();
-//        list.add(new Department(1,"Computadores"));
-//        list.add(new Department(2,"Alimentação"));
-//        list.add(new Department(3,"Financeiro"));
+//        List<Course> list = new ArrayList<>();
+//        list.add(new Course(1,"Computadores"));
+//        list.add(new Course(2,"Alimentação"));
+//        list.add(new Course(3,"Financeiro"));
 //        return list;
 
     }
-    public void saveOrUpdate(Department obj){
+    public void saveOrUpdate(Course obj){
         if (obj.getId() == null){
             dao.insert(obj);
         } else {
@@ -31,7 +30,7 @@ public class DepartmentService {
             }
         }
 
-        public void remove(Department obj){
+        public void remove(Course obj){
             dao.deleteById(obj.getId());
         }
     }
