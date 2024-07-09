@@ -24,7 +24,7 @@ public class Main extends Application {
             scrollPane.setPrefSize(1000, 700);
             mainScene = new Scene(scrollPane);
             primaryStage.setScene(mainScene);
-//            primaryStage.setTitle("Titulo do seu sistema");
+            primaryStage.setTitle("Gestão de Cursos");
             primaryStage.show();
             primaryStage.setResizable(false);
         } catch (IOException e) {

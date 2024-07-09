@@ -1,3 +1,5 @@
+-- falta atualizar
+
 USE SENACPROJETO;
 
 USE SenacProjeto;
