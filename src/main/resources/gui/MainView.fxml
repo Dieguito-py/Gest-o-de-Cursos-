@@ -9,10 +9,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="509.0" prefWidth="680.0" stylesheets="@style/mainView.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="senac.senacfx.controller.MainViewController">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" stylesheets="@style/mainView.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="senac.senacfx.controller.MainViewController">
    <content>
-      <BorderPane prefHeight="503.0" prefWidth="677.0">
+      <BorderPane prefHeight="700.0" prefWidth="1000.0">
          <left>
             <VBox alignment="CENTER" prefHeight="503.0" prefWidth="210.0" style="-fx-background-color: #1E1E1E;" BorderPane.alignment="CENTER">
                <children>
@@ -52,9 +53,14 @@
                         <Image url="@../banana.png" />
                      </image>
                      <VBox.margin>
-                        <Insets bottom="100.0" left="230.0" top="70.0" />
+                        <Insets bottom="30.0" left="230.0" top="70.0" />
                      </VBox.margin>
                   </ImageView>
+                  <Text fill="yellow" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 30; -fx-font-weight: bold;" text="Sistema para Gerenciamento de Cursos" textOrigin="CENTER">
+                     <VBox.margin>
+                        <Insets left="100.0" />
+                     </VBox.margin>
+                  </Text>
                </children>
                <padding>
                   <Insets bottom="22.0" left="22.0" right="22.0" top="22.0" />
