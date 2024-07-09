@@ -47,6 +47,12 @@ public class SellerFormController implements Initializable {
     private DatePicker dpBirthDate;
 
     @FXML
+    private DatePicker dpJoinDate;
+
+    @FXML
+    private TextField txtCpf;
+
+    @FXML
     private TextField txtBaseSalary;
 
     @FXML
@@ -137,12 +143,7 @@ public class SellerFormController implements Initializable {
             obj.setBirthDate(Date.from(instant));
         }
 
-        if (txtBaseSalary.getText() == null || txtBaseSalary.getText().trim().equals("")){
-            exception.addError("baseSalary", "campo nao pode ser vazio");
-        }
-        obj.setBaseSalary(Utils.tryParseToDouble(txtBaseSalary.getText()));
-
-        obj.setDepartment(comboBoxDepartment.getValue());
+        obj.setCourse(comboBoxDepartment.getValue());
 
         if (exception.getErrors().size() > 0){
             throw exception;
@@ -189,12 +190,10 @@ public class SellerFormController implements Initializable {
             dpBirthDate.setValue(LocalDate.ofInstant(entity.getBirthDate().toInstant(), ZoneId.systemDefault()));
         }
 
-        txtBaseSalary.setText(String.format("%.2f", entity.getBaseSalary()));
-
-        if (entity.getDepartment() == null) {
+        if (entity.getCourse() == null) {
             comboBoxDepartment.getSelectionModel().selectFirst();
         } else {
-            comboBoxDepartment.setValue(entity.getDepartment());
+            comboBoxDepartment.setValue(entity.getCourse());
         }
 
     }

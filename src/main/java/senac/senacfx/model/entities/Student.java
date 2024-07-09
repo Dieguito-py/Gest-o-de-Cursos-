@@ -9,20 +9,22 @@ public class Student implements Serializable {
     private String name;
     private String email;
     private Date birthDate;
-    private Double baseSalary;
+    private Date joinDate;
+    private String cpf;
 
-    private Course department;
+    private Course course;
 
     public Student() {
     }
 
-    public Student(Integer id, String name, String email, Date birthDate, Double baseSalary, Course department) {
+    public Student(Integer id, String name, String email, Date birthDate, Date joinDate, String cpf, Course course) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.birthDate = birthDate;
-        this.baseSalary = baseSalary;
-        this.department = department;
+        this.joinDate = joinDate;
+        this.cpf = cpf;
+        this.course = course;
     }
 
     public Integer getId() {
@@ -57,20 +59,28 @@ public class Student implements Serializable {
         this.birthDate = birthDate;
     }
 
-    public Double getBaseSalary() {
-        return baseSalary;
+    public Date getJoinDate() {
+        return joinDate;
     }
 
-    public void setBaseSalary(Double baseSalary) {
-        this.baseSalary = baseSalary;
+    public void setJoinDate(Date joinDate) {
+        this.joinDate = joinDate;
     }
 
-    public Course getDepartment() {
-        return department;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setDepartment(Course department) {
-        this.department = department;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
 
     @Override
@@ -106,8 +116,9 @@ public class Student implements Serializable {
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", birthDate=" + birthDate +
-                ", baseSalary=" + baseSalary +
-                ", department=" + department +
+                ", joinDate=" + joinDate +
+                ", cpf='" + cpf + '\'' +
+                ", course=" + course +
                 '}';
     }
 }

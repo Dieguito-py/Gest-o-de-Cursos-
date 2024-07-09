@@ -43,11 +43,11 @@ public class DepartmentFormController implements Initializable {
     private Button btCancel;
 
     //Contolador agora tem uma instancia do departamento
-    public void setDepartment(Course entity){
+    public void setCourse(Course entity){
         this.entity = entity;
     }
 
-    public void setDepartmentService(DepartmentService service){
+    public void setCourseService(DepartmentService service){
         this.service = service;
     }
 

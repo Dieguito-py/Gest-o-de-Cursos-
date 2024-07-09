@@ -25,15 +25,16 @@ public class StudentDaoJDBC implements StudentDao {
         try{
             st = conn.prepareStatement(
                     "insert into student " +
-                            "(Name, Email, BirthDate, BaseSalary, DepartmentId) " +
-                            "values (?, ?, ?, ?, ?)",
+                            "(Name, Email, BirthDate, JoinDate, Cpf, StudentId) " +
+                            "values (?, ?, ?, ?, ?, ?)",
                     Statement.RETURN_GENERATED_KEYS);
 
             st.setString(1, obj.getName());
             st.setString(2, obj.getEmail());
             st.setDate(3, new Date(obj.getBirthDate().getTime()));
-            st.setDouble(4, obj.getBaseSalary());
-            st.setInt(5, obj.getDepartment().getId());
+            st.setDate(4, new Date(obj.getJoinDate().getTime()));
+            st.setString(5, obj.getCpf());
+            st.setInt(6, obj.getCourse().getId());
 
             int rowsAffected = st.executeUpdate();
 
@@ -61,15 +62,16 @@ public class StudentDaoJDBC implements StudentDao {
         try{
             st = conn.prepareStatement(
                     "update student " +
-                            "set Name = ?, Email = ?, BirthDate = ?, BaseSalary = ?, DepartmentId = ? " +
+                            "set Name = ?, Email = ?, BirthDate = ?, JoinDate = ?, Cpf = ?, StudentId = ? " +
                             "where id = ?");
 
             st.setString(1, obj.getName());
             st.setString(2, obj.getEmail());
             st.setDate(3, new Date(obj.getBirthDate().getTime()));
-            st.setDouble(4, obj.getBaseSalary());
-            st.setInt(5, obj.getDepartment().getId());
-            st.setInt(6, obj.getId());
+            st.setDate(4, new Date(obj.getJoinDate().getTime()));
+            st.setString(5, obj.getCpf());
+            st.setInt(6, obj.getCourse().getId());
+            st.setInt(7, obj.getId());
 
             st.executeUpdate();
 
@@ -91,7 +93,7 @@ public class StudentDaoJDBC implements StudentDao {
             int rowsAffected = st.executeUpdate();
 
             if (rowsAffected == 0){
-                throw new DbException("Vendedor inexistente!");
+                throw new DbException("Estudante inexistente!");
             }
 
         } catch (SQLException e){
@@ -141,9 +143,10 @@ public class StudentDaoJDBC implements StudentDao {
         obj.setId(rs.getInt("Id"));
         obj.setName(rs.getString("Name"));
         obj.setEmail(rs.getString("Email"));
-        obj.setBaseSalary(rs.getDouble("BaseSalary"));
         obj.setBirthDate(new java.util.Date(rs.getTimestamp("BirthDate").getTime()));
-        obj.setDepartment(dep);
+        obj.setJoinDate(new java.util.Date(rs.getTimestamp("JoinDate").getTime()));
+        obj.setCpf(rs.getString("Cpf"));
+        obj.setCourse(dep);
         return obj;
     }
     @Override

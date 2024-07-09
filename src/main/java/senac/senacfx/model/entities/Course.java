@@ -7,13 +7,15 @@ public class Course implements Serializable {
     private static final long serialVersionUID = 1L;
     private Integer id;
     private String name;
+    private Integer semester;
 
     public Course() {
     }
 
-    public Course(Integer id, String name) {
+    public Course(Integer id, String name, Integer semester) {
         this.id = id;
         this.name = name;
+        this.semester = semester;
     }
 
     public Integer getId() {
@@ -30,6 +32,14 @@ public class Course implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getSemester() {
+        return semester;
+    }
+
+    public void setSemester(Integer semester) {
+        this.semester = semester;
     }
 
     @Override
@@ -63,6 +73,7 @@ public class Course implements Serializable {
         return "Course{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", semester=" + semester +
                 '}';
     }
 }

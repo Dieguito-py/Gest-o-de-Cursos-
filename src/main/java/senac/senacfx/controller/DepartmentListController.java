@@ -61,7 +61,7 @@ public class DepartmentListController implements Initializable, DataChangeListen
 
     //feito isso usando um set, para injetar dependencia, boa pratica
     //injecao de dependendencia manual, sem framework pra isso
-    public void setDepartmentService(DepartmentService service){
+    public void setCourseService(DepartmentService service){
         this.service = service;
     }
 
@@ -97,8 +97,8 @@ public class DepartmentListController implements Initializable, DataChangeListen
             Pane pane = loader.load();
 
             DepartmentFormController controller = loader.getController();
-            controller.setDepartment(obj);
-            controller.setDepartmentService(new DepartmentService());
+            controller.setCourse(obj);
+            controller.setCourseService(new DepartmentService());
             controller.subscribeDataChangeListener(this);
             controller.updateFormData();
 

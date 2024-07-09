@@ -50,7 +50,13 @@ public class SellerListController implements Initializable, DataChangeListener {
     private TableColumn<Student, Date> tableColumnBirthDate;
 
     @FXML
-    private TableColumn<Student, Double> tableColumnBaseSalary;
+    private TableColumn<Student, Date> tableColumnJoinDate;
+
+    @FXML
+    private TableColumn<Student, String> tableColumnCpf;
+
+    @FXML
+    private TableColumn<Student, Student> tableColumnCourse;
 
     @FXML
     private TableColumn<Student, Student> tableColumnEDIT;
@@ -70,8 +76,6 @@ public class SellerListController implements Initializable, DataChangeListener {
         createDialogForm(obj,"/gui/SellerForm.fxml", parentStage);
     }
 
-    //feito isso usando um set, para injetar dependencia, boa pratica
-    //injecao de dependendencia manual, sem framework pra isso
     public void setSellerService(SellerService service){
         this.service = service;
     }
@@ -88,8 +92,10 @@ public class SellerListController implements Initializable, DataChangeListener {
         tableColumnEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         tableColumnBirthDate.setCellValueFactory(new PropertyValueFactory<>("birthDate"));
         Utils.formatTableColumnDate(tableColumnBirthDate, "dd/MM/yyyy");
-        tableColumnBaseSalary.setCellValueFactory(new PropertyValueFactory<>("baseSalary"));
-        Utils.formatTableColumnDouble(tableColumnBaseSalary, 2);
+        tableColumnJoinDate.setCellValueFactory(new PropertyValueFactory<>("JoinDate"));
+        Utils.formatTableColumnDate(tableColumnJoinDate, "dd/MM/yyyy");
+        tableColumnCpf.setCellValueFactory(new PropertyValueFactory<>("cpf"));
+        tableColumnCourse.setCellValueFactory(new PropertyValueFactory<>("course"));
 
 
         Stage stage = (Stage) Main.getMainScene().getWindow();
