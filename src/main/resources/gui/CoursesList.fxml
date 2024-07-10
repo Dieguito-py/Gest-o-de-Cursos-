@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="326.0" prefWidth="513.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="senac.senacfx.controller.DepartmentListController">
+<VBox prefHeight="326.0" prefWidth="513.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="senac.senacfx.controller.CoursesListController">
          <children>
             <Label text="Registro de Departamentos">
                <font>

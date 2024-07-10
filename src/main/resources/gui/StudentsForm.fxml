@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="358.0" prefWidth="600.0" styleClass="root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="senac.senacfx.controller.SellerFormController">
+<AnchorPane prefHeight="358.0" prefWidth="600.0" styleClass="root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="senac.senacfx.controller.StudentsFormController">
    <children>
       <GridPane layoutX="23.0" layoutY="14.0" prefHeight="319.0" prefWidth="538.0" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="14.0">
         <columnConstraints>

@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class SellerListController implements Initializable, DataChangeListener {
+public class StudentsListController implements Initializable, DataChangeListener {
     //ao inves de implementar um service = new SellerService(), ficaria acoplamento forte
     //e seria obrigado a instanciar a classe
     private SellerService service;
@@ -73,7 +73,7 @@ public class SellerListController implements Initializable, DataChangeListener {
     public void onBtNewAction(ActionEvent event){
         Stage parentStage = Utils.currentStage(event);
         Student obj = new Student();
-        createDialogForm(obj,"/gui/SellerForm.fxml", parentStage);
+        createDialogForm(obj, "/gui/StudentsForm.fxml", parentStage);
     }
 
     public void setSellerService(SellerService service){
@@ -120,7 +120,7 @@ public class SellerListController implements Initializable, DataChangeListener {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
             Pane pane = loader.load();
 
-            SellerFormController controller = loader.getController();
+            StudentsFormController controller = loader.getController();
             controller.setSeller(obj);
             controller.setServices(new SellerService(), new DepartmentService());
             controller.loadAssociatedObjects();
@@ -160,7 +160,7 @@ public class SellerListController implements Initializable, DataChangeListener {
                 setGraphic(button);
                 button.setOnAction(
                         event -> createDialogForm(
-                                obj, "/gui/SellerForm.fxml",Utils.currentStage(event)));
+                                obj, "/gui/StudentsForm.fxml",Utils.currentStage(event)));
             }
         });
     }

@@ -3,7 +3,6 @@ package senac.senacfx.controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.MenuItem;
@@ -37,7 +36,7 @@ public class MainViewController implements Initializable {
 
     @FXML
     public void onMenuItemSellerAction(){
-        loadView("/gui/SellerList.fxml", (SellerListController controller) -> {
+        loadView("/gui/StudentsList.fxml", (StudentsListController controller) -> {
             controller.setSellerService(new SellerService());
             controller.updateTableView();
         });
@@ -45,7 +44,7 @@ public class MainViewController implements Initializable {
 
     @FXML
     public void onMenuItemDepartmentAction(){
-        loadView("/gui/DepartmentList.fxml", (DepartmentListController controller) -> {
+        loadView("/gui/CoursesList.fxml", (CoursesListController controller) -> {
             controller.setCourseService(new DepartmentService());
             controller.updateTableView();
         });

@@ -19,7 +19,7 @@ import senac.senacfx.model.services.DepartmentService;
 import java.net.URL;
 import java.util.*;
 
-public class DepartmentFormController implements Initializable {
+public class CoursesFormController implements Initializable {
 
     private Course entity;
 
