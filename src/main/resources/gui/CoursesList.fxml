@@ -5,13 +5,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="326.0" prefWidth="513.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="senac.senacfx.controller.CoursesListController">
+<VBox maxHeight="596.0" maxWidth="800.0" minHeight="300.0" minWidth="777.0" prefHeight="596.0" prefWidth="777.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="senac.senacfx.controller.CoursesListController">
          <children>
-            <Label text="Registro de Departamentos">
+            <Label style="-fx-font-weight: 400; -fx-font-size: 25px;" text="REGISTRO DE CURSOS" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -22,11 +22,19 @@
                   <Insets bottom="10.0" left="20.0" top="10.0" />
                </padding>
             </Label>
-      <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #121212;">
-        <items>
-          <Button fx:id="btNew" mnemonicParsing="false" onAction="#onBtNewAction" styleClass="button-new" text="Novo" />
-        </items>
-      </ToolBar>
+      <Pane prefHeight="311.0" prefWidth="733.0" stylesheets="@style.css">
+         <children>
+             <Button fx:id="btNew" alignment="CENTER" contentDisplay="RIGHT" layoutX="647.0" layoutY="18.0" mnemonicParsing="false" onAction="#onBtNewAction" style="-fx-background-color: #FFC90E;" text="Novo" textFill="#121212" />
+            <Label layoutX="14.0" layoutY="21.0" prefHeight="24.0" prefWidth="305.0" style="-fx-font-size: 17px;" text="Visualize ou adicione novos cursos" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+      </Pane>
       <TableView fx:id="tableViewDepartment" prefHeight="200.0" prefWidth="200.0" stylesheets="@style/tableView.css">
         <columns>
           <TableColumn fx:id="tableColumnId" prefWidth="75.0" text="Id" />
