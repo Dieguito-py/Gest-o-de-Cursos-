@@ -34,6 +34,9 @@ public class CoursesFormController implements Initializable {
     private TextField txtName;
 
     @FXML
+    private TextField txtSemester;
+
+    @FXML
     private Label labelErrorName;
 
     @FXML

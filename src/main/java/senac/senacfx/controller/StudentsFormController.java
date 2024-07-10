@@ -140,6 +140,18 @@ public class StudentsFormController implements Initializable {
             obj.setBirthDate(Date.from(instant));
         }
 
+        if (dpJoinDate.getValue() == null){
+            exception.addError("joinDate", "data nao selecionada");
+        } else {
+            Instant instant = Instant.from(dpJoinDate.getValue().atStartOfDay(ZoneId.systemDefault()));
+            obj.setJoinDate(Date.from(instant));
+        }
+
+        if (txtCpf.getText() == null || txtCpf.getText().trim().equals("")){
+            exception.addError("cpf", "campo nao pode ser vazio");
+        }
+        obj.setName(txtCpf.getText());
+
         obj.setCourse(comboBoxDepartment.getValue());
 
         if (exception.getErrors().size() > 0){
@@ -165,7 +177,8 @@ public class StudentsFormController implements Initializable {
         Constraints.setTextFieldMaxLength(txtName, 70);
         Constraints.setTextFieldMaxLength(txtEmail, 60);
         Utils.formatDatePicker(dpBirthDate, "dd/MM/yyyy");
-
+        Utils.formatDatePicker(dpJoinDate, "dd/MM/yyyy");
+        Constraints.setTextFieldMaxLength(txtCpf, 60);
         initializeComboBoxDepartment();
 
     }
@@ -179,9 +192,12 @@ public class StudentsFormController implements Initializable {
         txtId.setText(String.valueOf(entity.getId()));
         txtName.setText(entity.getName());
         txtEmail.setText(entity.getEmail());
-
+        txtCpf.setText(entity.getCpf());
         Locale.setDefault(Locale.US);
 
+        if (entity.getJoinDate() != null) {
+            dpBirthDate.setValue(LocalDate.ofInstant(entity.getJoinDate().toInstant(), ZoneId.systemDefault()));
+        }
         if (entity.getBirthDate() != null) {
             dpBirthDate.setValue(LocalDate.ofInstant(entity.getBirthDate().toInstant(), ZoneId.systemDefault()));
         }
@@ -211,7 +227,6 @@ public class StudentsFormController implements Initializable {
         labelErrorName.setText((fields.contains("name") ? errors.get("name") : ""));
         labelErrorEmail.setText((fields.contains("email") ? errors.get("email") : ""));
         labelErrorBirthDate.setText((fields.contains("birthDate") ? errors.get("birthDate") : ""));
-        labelErrorBaseSalary.setText((fields.contains("baseSalary") ? errors.get("baseSalary") : ""));
         labelErrorName.getStyleClass().add("button");
 
     }
