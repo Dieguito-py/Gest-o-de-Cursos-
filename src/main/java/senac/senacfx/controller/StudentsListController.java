@@ -1,6 +1,8 @@
 package senac.senacfx.controller;
 
 import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -96,7 +98,6 @@ public class StudentsListController implements Initializable, DataChangeListener
         Utils.formatTableColumnDate(tableColumnJoinDate, "dd/MM/yyyy");
         tableColumnCpf.setCellValueFactory(new PropertyValueFactory<>("cpf"));
         tableColumnCourse.setCellValueFactory(new PropertyValueFactory<>("course"));
-
 
 
         Stage stage = (Stage) Main.getMainScene().getWindow();
