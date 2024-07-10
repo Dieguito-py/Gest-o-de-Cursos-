@@ -23,11 +23,12 @@ public class CourseDaoJDBC implements CourseDao {
         PreparedStatement st = null;
         try {
             st = conn.prepareStatement("insert into course " +
-                    "(Name) " +
-                    "values (?) ",
+                    "(Name, Semester) " +
+                    "values (?, ?) ",
                     Statement.RETURN_GENERATED_KEYS);
 
             st.setString(1, obj.getName());
+            st.setInt(2, obj.getSemester());
 
             int rowsAffected = st.executeUpdate();
 
@@ -55,11 +56,12 @@ public class CourseDaoJDBC implements CourseDao {
         PreparedStatement st = null;
         try {
             st = conn.prepareStatement("update course " +
-                            "set Name = ? " +
+                            "set Name = ? , Semester = ?" +
                             "where Id = ?");
 
             st.setString(1, obj.getName());
-            st.setInt(2, obj.getId());
+            st.setInt(2, obj.getSemester());
+            st.setInt(3, obj.getId());
 
             int rowsAffected = st.executeUpdate();
 
@@ -126,6 +128,7 @@ public class CourseDaoJDBC implements CourseDao {
         Course dep = new Course();
         dep.setId(rs.getInt("Id"));
         dep.setName(rs.getString("Name"));
+        dep.setSemester(rs.getInt("Semester"));
         return dep;
     }
 

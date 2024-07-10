@@ -53,9 +53,6 @@ public class SellerFormController implements Initializable {
     private TextField txtCpf;
 
     @FXML
-    private TextField txtBaseSalary;
-
-    @FXML
     private ComboBox<Course> comboBoxDepartment;
     @FXML
     private Label labelErrorName;
@@ -166,7 +163,6 @@ public class SellerFormController implements Initializable {
     private void initializeNodes() {
         Constraints.setTextFieldInteger(txtId);
         Constraints.setTextFieldMaxLength(txtName, 70);
-        Constraints.setTextFieldDouble(txtBaseSalary);
         Constraints.setTextFieldMaxLength(txtEmail, 60);
         Utils.formatDatePicker(dpBirthDate, "dd/MM/yyyy");
 

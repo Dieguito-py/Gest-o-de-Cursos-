@@ -11,7 +11,6 @@ public class Student implements Serializable {
     private Date birthDate;
     private Date joinDate;
     private String cpf;
-
     private Course course;
 
     public Student() {

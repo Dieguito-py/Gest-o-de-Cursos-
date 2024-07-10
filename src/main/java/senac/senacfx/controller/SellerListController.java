@@ -98,6 +98,7 @@ public class SellerListController implements Initializable, DataChangeListener {
         tableColumnCourse.setCellValueFactory(new PropertyValueFactory<>("course"));
 
 
+
         Stage stage = (Stage) Main.getMainScene().getWindow();
         tableViewSeller.prefHeightProperty().bind(stage.heightProperty());
 
