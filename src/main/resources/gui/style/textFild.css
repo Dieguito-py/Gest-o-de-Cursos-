@@ -1,0 +1,13 @@
+.custom-text-field {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #FFC90E transparent;
+    -fx-border-width: 0 0 2 0;
+    -fx-text-fill: white;
+    -fx-font-size: 13pt;
+    -fx-padding: 0 0 -2 0;
+}
+
+.custom-text-field:focused {
+    -fx-border-color: transparent transparent #e5b50d transparent;
+    -fx-border-width: 0 0 2 0;
+}

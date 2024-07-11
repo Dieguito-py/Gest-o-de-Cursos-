@@ -45,7 +45,6 @@ public class CoursesFormController implements Initializable {
     @FXML
     private Button btRemove;
 
-    //Contolador agora tem uma instancia do departamento
     public void setCourse(Course entity){
         this.entity = entity;
     }
@@ -60,7 +59,6 @@ public class CoursesFormController implements Initializable {
 
     @FXML
     public void onBtSaveAction(ActionEvent event) {
-        //validacao manual pois nao esta sendo usado framework para injetar dependencia
         if (entity == null){
             throw new IllegalStateException("Entidade nula");
         }

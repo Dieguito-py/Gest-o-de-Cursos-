@@ -1,0 +1,27 @@
+.yellow-button {
+    -fx-background-color: #FFC90E;
+    -fx-text-fill: #1e1e1e;
+    -fx-font-weight: bold;
+    -fx-font-size: 13pt;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    /*-fx-padding: 10 20;*/
+}
+
+.red-button {
+    -fx-background-color: #FF0000;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13pt;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    /*-fx-padding: 10 20; */
+}
+
+.yellow-button:hover, .red-button:hover {
+    -fx-opacity: 0.8; /* Efeito de hover*/
+}
+
+.yellow-button:pressed, .red-button:pressed {
+    -fx-opacity: 0.6; /* Efeito de clique*/
+}

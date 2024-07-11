@@ -29,8 +29,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class CoursesListController implements Initializable, DataChangeListener {
-    //ao inves de implementar um service = new DepartmentService(), ficaria acoplamento forte
-    //e seria obrigado a instanciar a classe
+
     private DepartmentService service;
 
     @FXML
@@ -116,7 +115,7 @@ public class CoursesListController implements Initializable, DataChangeListener 
             controller.updateFormData();
 
             Stage dialogStage = new Stage();
-            dialogStage.setTitle("Enter department data");
+            dialogStage.setTitle("Editar Cursos");
             dialogStage.setScene(new Scene(pane));
             dialogStage.setResizable(false);
             dialogStage.initOwner(parentStage);
@@ -155,23 +154,23 @@ public class CoursesListController implements Initializable, DataChangeListener 
 //        });
 //    }
 
-    private void initRemoveButtons() {
-        tableColumnREMOVE.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
-        tableColumnREMOVE.setCellFactory(param -> new TableCell<Course, Course>() {
-            private final Button button = new Button("Remover");
-
-            @Override
-            protected void updateItem(Course obj, boolean empty) {
-                super.updateItem(obj, empty);
-                if (obj == null) {
-                    setGraphic(null);
-                    return;
-                }
-                setGraphic(button);
-                button.setOnAction(event -> removeEntity(obj));
-            }
-        });
-    }
+//    private void initRemoveButtons() {
+//        tableColumnREMOVE.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
+//        tableColumnREMOVE.setCellFactory(param -> new TableCell<Course, Course>() {
+//            private final Button button = new Button("Remover");
+//
+//            @Override
+//            protected void updateItem(Course obj, boolean empty) {
+//                super.updateItem(obj, empty);
+//                if (obj == null) {
+//                    setGraphic(null);
+//                    return;
+//                }
+//                setGraphic(button);
+//                button.setOnAction(event -> removeEntity(obj));
+//            }
+//        });
+//    }
 
     private void removeEntity(Course obj) {
         Optional<ButtonType> result = Alerts.showConfirmation("Confirmation", "Confirma que quer deletar?");
