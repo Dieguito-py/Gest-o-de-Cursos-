@@ -98,6 +98,8 @@ public class CoursesFormController implements Initializable {
         }
         obj.setName(txtName.getText());
 
+        obj.setSemester(Integer.valueOf(txtSemester.getText()));
+
         if (exception.getErrors().size() > 0){
             throw exception;
         }

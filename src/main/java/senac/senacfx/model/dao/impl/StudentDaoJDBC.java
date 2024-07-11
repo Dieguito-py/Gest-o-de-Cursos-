@@ -25,7 +25,7 @@ public class StudentDaoJDBC implements StudentDao {
         try{
             st = conn.prepareStatement(
                     "insert into student " +
-                            "(Name, Email, BirthDate, JoinDate, Cpf, StudentId) " +
+                            "(Name, Email, BirthDate, JoinDate, Cpf, CourseId) " +
                             "values (?, ?, ?, ?, ?, ?)",
                     Statement.RETURN_GENERATED_KEYS);
 

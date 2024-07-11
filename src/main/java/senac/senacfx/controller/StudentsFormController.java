@@ -150,7 +150,7 @@ public class StudentsFormController implements Initializable {
         if (txtCpf.getText() == null || txtCpf.getText().trim().equals("")){
             exception.addError("cpf", "campo nao pode ser vazio");
         }
-        obj.setName(txtCpf.getText());
+        obj.setCpf(txtCpf.getText());
 
         obj.setCourse(comboBoxDepartment.getValue());
 
