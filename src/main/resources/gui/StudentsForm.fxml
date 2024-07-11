@@ -49,7 +49,8 @@
             <Label text="CPF" GridPane.rowIndex="5" />
             <Label fx:id="labelErrorEmail" textAlignment="CENTER" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="2" />
             <Label fx:id="labelErrorBirthDate" textAlignment="CENTER" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <Label fx:id="labelErrorBaseSalary" textAlignment="CENTER" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Label fx:id="labelErrorJoinDate" textAlignment="CENTER" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <Label fx:id="labelErrorCpf" textAlignment="CENTER" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="5" />
             <Label text="Curso" GridPane.rowIndex="6" />
             <TextField fx:id="txtCpf" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Label prefHeight="18.0" prefWidth="79.0" text="Data início" GridPane.rowIndex="4" />

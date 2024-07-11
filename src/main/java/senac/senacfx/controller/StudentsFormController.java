@@ -64,7 +64,10 @@ public class StudentsFormController implements Initializable {
     private Label labelErrorBirthDate;
 
     @FXML
-    private Label labelErrorBaseSalary;
+    private Label labelErrorJoinDate;
+
+    @FXML
+    private Label labelErrorCpf;
 
     @FXML
     private Button btSave;
@@ -196,7 +199,7 @@ public class StudentsFormController implements Initializable {
         Locale.setDefault(Locale.US);
 
         if (entity.getJoinDate() != null) {
-            dpBirthDate.setValue(LocalDate.ofInstant(entity.getJoinDate().toInstant(), ZoneId.systemDefault()));
+            dpJoinDate.setValue(LocalDate.ofInstant(entity.getJoinDate().toInstant(), ZoneId.systemDefault()));
         }
         if (entity.getBirthDate() != null) {
             dpBirthDate.setValue(LocalDate.ofInstant(entity.getBirthDate().toInstant(), ZoneId.systemDefault()));
@@ -227,6 +230,8 @@ public class StudentsFormController implements Initializable {
         labelErrorName.setText((fields.contains("name") ? errors.get("name") : ""));
         labelErrorEmail.setText((fields.contains("email") ? errors.get("email") : ""));
         labelErrorBirthDate.setText((fields.contains("birthDate") ? errors.get("birthDate") : ""));
+        labelErrorJoinDate.setText((fields.contains("joinDate") ? errors.get("joinDate") : ""));
+        labelErrorCpf.setText((fields.contains("cpf") ? errors.get("cpf") : ""));
         labelErrorName.getStyleClass().add("button");
 
     }

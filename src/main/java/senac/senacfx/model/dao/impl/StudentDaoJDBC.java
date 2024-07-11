@@ -62,7 +62,7 @@ public class StudentDaoJDBC implements StudentDao {
         try{
             st = conn.prepareStatement(
                     "update student " +
-                            "set Name = ?, Email = ?, BirthDate = ?, JoinDate = ?, Cpf = ?, StudentId = ? " +
+                            "set Name = ?, Email = ?, BirthDate = ?, JoinDate = ?, Cpf = ?, CourseId = ? " +
                             "where id = ?");
 
             st.setString(1, obj.getName());

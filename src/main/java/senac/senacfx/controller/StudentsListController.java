@@ -121,8 +121,6 @@ public class StudentsListController implements Initializable, DataChangeListener
         List<Student> list = service.findAll();
         obsList = FXCollections.observableArrayList(list);
         tableViewSeller.setItems(obsList);
-        initEditButtons();
-        initRemoveButtons();
     }
 
     private void createDialogForm(Student obj, String absoluteName, Stage parentStage){
@@ -154,43 +152,6 @@ public class StudentsListController implements Initializable, DataChangeListener
     @Override
     public void onDataChanged() {
         updateTableView();
-    }
-
-    private void initEditButtons() {
-        tableColumnEDIT.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
-        tableColumnEDIT.setCellFactory(param -> new TableCell<Student, Student>() {
-            private final Button button = new Button("Editar");
-            @Override
-            protected void updateItem(Student obj, boolean empty) {
-                super.updateItem(obj, empty);
-                if (obj == null) {
-                    setGraphic(null);
-                    return;
-                }
-                setGraphic(button);
-                button.setOnAction(
-                        event -> createDialogForm(
-                                obj, "/gui/StudentsForm.fxml",Utils.currentStage(event)));
-            }
-        });
-    }
-
-    private void initRemoveButtons() {
-        tableColumnREMOVE.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
-        tableColumnREMOVE.setCellFactory(param -> new TableCell<Student, Student>() {
-            private final Button button = new Button("Remover");
-
-            @Override
-            protected void updateItem(Student obj, boolean empty) {
-                super.updateItem(obj, empty);
-                if (obj == null) {
-                    setGraphic(null);
-                    return;
-                }
-                setGraphic(button);
-                button.setOnAction(event -> removeEntity(obj));
-            }
-        });
     }
 
     private void removeEntity(Student obj) {
