@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="184.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="senac.senacfx.controller.CoursesFormController">
+<AnchorPane prefHeight="184.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="senac.senacfx.controller.CoursesFormController">
    <children>
       <GridPane layoutX="7.0" layoutY="14.0" prefHeight="118.0" prefWidth="528.0" AnchorPane.leftAnchor="7.0" AnchorPane.topAnchor="14.0">
         <columnConstraints>
@@ -37,7 +37,7 @@
                         <Insets top="5.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="btCancel" mnemonicParsing="false" onAction="#onBtCancelAction" styleClass="button-style-no" text="Cancelar">
+                  <Button fx:id="btRemove" mnemonicParsing="false" onAction="#onbtRemoveAction" styleClass="button-style-no" text="Remover">
                      <HBox.margin>
                         <Insets top="5.0" />
                      </HBox.margin>

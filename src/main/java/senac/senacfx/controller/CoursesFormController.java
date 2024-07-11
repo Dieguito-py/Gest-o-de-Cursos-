@@ -43,7 +43,7 @@ public class CoursesFormController implements Initializable {
     private Button btSave;
 
     @FXML
-    private Button btCancel;
+    private Button btRemove;
 
     //Contolador agora tem uma instancia do departamento
     public void setCourse(Course entity){
@@ -108,8 +108,21 @@ public class CoursesFormController implements Initializable {
     }
 
     @FXML
-    public void onBtCancelAction(ActionEvent event) {
-        Utils.currentStage(event).close();
+    public void onbtRemoveAction(ActionEvent event) {
+        if (entity == null){
+            Alerts.showAlert("Erro ao remover objeto", null, "Entidade nula", Alert.AlertType.ERROR);
+        }
+        if (service == null){
+            Alerts.showAlert("Erro ao remover objeto", null, "Servico nulo", Alert.AlertType.ERROR);
+        }
+
+        try {
+            service.remove(entity);
+            notifyDataChangeListeners();
+            Utils.currentStage(event).close();
+        } catch (DbException e){
+            Alerts.showAlert("Erro ao remover objeto", null, e.getMessage(), Alert.AlertType.ERROR);
+        }
     }
 
 
@@ -121,6 +134,7 @@ public class CoursesFormController implements Initializable {
     private void initializeNodes() {
         Constraints.setTextFieldInteger(txtId);
         Constraints.setTextFieldMaxLength(txtName, 30);
+        Constraints.setTextFieldMaxLength(txtSemester, 3);
 
     }
 
@@ -131,6 +145,7 @@ public class CoursesFormController implements Initializable {
 
         txtId.setText(String.valueOf(entity.getId()));
         txtName.setText(entity.getName());
+        txtSemester.setText(String.valueOf(entity.getSemester()));
     }
 
     private void setErrorMessages(Map<String, String> errors){

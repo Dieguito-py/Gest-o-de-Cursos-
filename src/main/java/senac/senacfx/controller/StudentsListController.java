@@ -1,17 +1,17 @@
 package senac.senacfx.controller;
 
 import javafx.beans.property.ReadOnlyObjectWrapper;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -24,6 +24,7 @@ import senac.senacfx.model.entities.Student;
 import senac.senacfx.model.services.DepartmentService;
 import senac.senacfx.model.services.SellerService;
 
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
@@ -32,8 +33,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class StudentsListController implements Initializable, DataChangeListener {
-    //ao inves de implementar um service = new SellerService(), ficaria acoplamento forte
-    //e seria obrigado a instanciar a classe
+
     private SellerService service;
 
     @FXML
@@ -99,6 +99,15 @@ public class StudentsListController implements Initializable, DataChangeListener
         tableColumnCpf.setCellValueFactory(new PropertyValueFactory<>("cpf"));
         tableColumnCourse.setCellValueFactory(new PropertyValueFactory<>("course"));
 
+        tableViewSeller.setOnMouseClicked(event -> {
+            if(event.getClickCount() == 2) {
+                Student obj = tableViewSeller.getSelectionModel().getSelectedItem();
+                if(obj != null) {
+                    Stage parentStage = Utils.currentStage(event);
+                    createDialogForm(obj, "/gui/StudentsForm.fxml", parentStage);
+                }
+            }
+        });
 
         Stage stage = (Stage) Main.getMainScene().getWindow();
         tableViewSeller.prefHeightProperty().bind(stage.heightProperty());

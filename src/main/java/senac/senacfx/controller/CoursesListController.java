@@ -19,6 +19,7 @@ import senac.senacfx.gui.listeners.DataChangeListener;
 import senac.senacfx.gui.util.Alerts;
 import senac.senacfx.gui.util.Utils;
 import senac.senacfx.model.entities.Course;
+import senac.senacfx.model.entities.Student;
 import senac.senacfx.model.services.DepartmentService;
 
 import java.io.IOException;
@@ -62,8 +63,6 @@ public class CoursesListController implements Initializable, DataChangeListener 
         createDialogForm(obj, "/gui/CoursesForm.fxml", parentStage);
     }
 
-    //feito isso usando um set, para injetar dependencia, boa pratica
-    //injecao de dependendencia manual, sem framework pra isso
     public void setCourseService(DepartmentService service){
         this.service = service;
     }
@@ -79,6 +78,16 @@ public class CoursesListController implements Initializable, DataChangeListener 
         tableColumnName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tableColumnSemester.setCellValueFactory(new PropertyValueFactory<>("semester"));
 
+        tableViewDepartment.setOnMouseClicked(event -> {
+            if(event.getClickCount() == 2) {
+                Course obj = tableViewDepartment.getSelectionModel().getSelectedItem();
+                if(obj != null) {
+                    Stage parentStage = Utils.currentStage(event);
+                    createDialogForm(obj, "/gui/CoursesForm.fxml", parentStage);
+                }
+            }
+        });
+
         Stage stage = (Stage) Main.getMainScene().getWindow();
         tableViewDepartment.prefHeightProperty().bind(stage.heightProperty());
 
@@ -91,8 +100,8 @@ public class CoursesListController implements Initializable, DataChangeListener 
         List<Course> list = service.findAll();
         obsList = FXCollections.observableArrayList(list);
         tableViewDepartment.setItems(obsList);
-        initEditButtons();
-        initRemoveButtons();
+//        initEditButtons();
+//        initRemoveButtons();
     }
 
     private void createDialogForm(Course obj, String absoluteName, Stage parentStage){
@@ -125,24 +134,26 @@ public class CoursesListController implements Initializable, DataChangeListener 
         updateTableView();
     }
 
-    private void initEditButtons() {
-        tableColumnEDIT.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
-        tableColumnEDIT.setCellFactory(param -> new TableCell<Course, Course>() {
-            private final Button button = new Button("Editar");
-            @Override
-            protected void updateItem(Course obj, boolean empty) {
-                super.updateItem(obj, empty);
-                if (obj == null) {
-                    setGraphic(null);
-                    return;
-                }
-                setGraphic(button);
-                button.setOnAction(
-                        event -> createDialogForm(
-                                obj, "/gui/CoursesForm.fxml",Utils.currentStage(event)));
-            }
-        });
-    }
+    // Adiciona o botão na coluna
+
+//    private void initEditButtons() {
+//        tableColumnEDIT.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
+//        tableColumnEDIT.setCellFactory(param -> new TableCell<Course, Course>() {
+//            private final Button button = new Button("Editar");
+//            @Override
+//            protected void updateItem(Course obj, boolean empty) {
+//                super.updateItem(obj, empty);
+//                if (obj == null) {
+//                    setGraphic(null);
+//                    return;
+//                }
+//                setGraphic(button);
+//                button.setOnAction(
+//                        event -> createDialogForm(
+//                                obj, "/gui/CoursesForm.fxml",Utils.currentStage(event)));
+//            }
+//        });
+//    }
 
     private void initRemoveButtons() {
         tableColumnREMOVE.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));

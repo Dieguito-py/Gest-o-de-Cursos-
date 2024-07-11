@@ -70,7 +70,7 @@ public class StudentsFormController implements Initializable {
     private Button btSave;
 
     @FXML
-    private Button btCancel;
+    private Button btRemove;
 
     private ObservableList<Course> obsList;
 
@@ -162,7 +162,7 @@ public class StudentsFormController implements Initializable {
     }
 
     @FXML
-    public void onBtCancelAction(ActionEvent event) {
+    public void onBtRemoveAction(ActionEvent event) {
         Utils.currentStage(event).close();
     }
 

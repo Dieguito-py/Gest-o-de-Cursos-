@@ -56,7 +56,7 @@ public class CourseDaoJDBC implements CourseDao {
         PreparedStatement st = null;
         try {
             st = conn.prepareStatement("update course " +
-                            "set Name = ? , Semester = ?" +
+                            "set Name = ?, Semester = ? " +
                             "where Id = ?");
 
             st.setString(1, obj.getName());
