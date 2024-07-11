@@ -15,6 +15,6 @@ public class AboutController {
 
     @FXML
     void openLink(ActionEvent event) throws URISyntaxException, IOException {
-        Desktop.getDesktop().browse(new URI("https://git-scm.com/download/win"));
+        Desktop.getDesktop().browse(new URI("https://github.com/Dieguito-py/Gestao-de-Cursos"));
     }
 }
