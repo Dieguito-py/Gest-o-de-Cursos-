@@ -98,6 +98,44 @@ public class CourseDaoJDBC implements CourseDao {
     }
 
     @Override
+    public List<Course> findAllWithStudentCount() {
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try {
+            st = conn.prepareStatement(
+                    "SELECT c.*, COUNT(s.id) as student_count \n" +
+                            "FROM course c \n" +
+                            "LEFT JOIN student s ON c.id = s.courseId \n" +
+                            "GROUP BY c.id, c.name \n" +
+                            "ORDER BY c.name"
+            );
+
+            rs = st.executeQuery();
+
+            List<Course> list = new ArrayList<>();
+            Map<Integer, Course> map = new HashMap<>();
+
+            while (rs.next()) {
+                Course dep = map.get(rs.getInt("Id"));
+
+                if (dep == null) {
+                    dep = instantiateDepartment(rs);
+                    dep.setStudentCount(rs.getInt("student_count"));
+                    map.put(rs.getInt("Id"), dep);
+                }
+
+                list.add(dep);
+            }
+            return list;
+        } catch (SQLException e) {
+            throw new DbException(e.getMessage());
+        } finally {
+            DB.closeStatement(st);
+            DB.closeResultSet(rs);
+        }
+    }
+
+    @Override
     public Course findById(Integer id) {
 
         PreparedStatement st = null;

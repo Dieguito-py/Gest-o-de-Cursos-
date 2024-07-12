@@ -45,10 +45,7 @@ public class CoursesListController implements Initializable, DataChangeListener 
     private TableColumn<Course, Integer> tableColumnSemester;
 
     @FXML
-    private TableColumn<Course, Course> tableColumnEDIT;
-
-    @FXML
-    private TableColumn<Course, Course> tableColumnREMOVE;
+    private TableColumn<Course, Integer> tableColumnStudentCount;
 
     @FXML
     private Button btNew;
@@ -76,6 +73,7 @@ public class CoursesListController implements Initializable, DataChangeListener 
         tableColumnId.setCellValueFactory(new PropertyValueFactory<>("id"));
         tableColumnName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tableColumnSemester.setCellValueFactory(new PropertyValueFactory<>("semester"));
+        tableColumnStudentCount.setCellValueFactory(new PropertyValueFactory<>("studentCount"));
 
         tableViewDepartment.setOnMouseClicked(event -> {
             if(event.getClickCount() == 2) {
@@ -96,7 +94,7 @@ public class CoursesListController implements Initializable, DataChangeListener 
         if (service == null){
             throw new IllegalStateException("Service is null!");
         }
-        List<Course> list = service.findAll();
+        List<Course> list = service.findAllWithStudentCount();
         obsList = FXCollections.observableArrayList(list);
         tableViewDepartment.setItems(obsList);
 //        initEditButtons();

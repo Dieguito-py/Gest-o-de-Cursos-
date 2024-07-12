@@ -38,10 +38,9 @@
       <TableView fx:id="tableViewDepartment" prefHeight="544.0" prefWidth="764.0" stylesheets="@style/tableView.css">
         <columns>
           <TableColumn fx:id="tableColumnId" prefWidth="75.0" text="Id" />
-          <TableColumn fx:id="tableColumnName" prefWidth="95.0" text="Nome" />
-            <TableColumn fx:id="tableColumnSemester" prefWidth="75.0" text="Semestres" />
-            <TableColumn fx:id="tableColumnEDIT" prefWidth="55.0" />
-            <TableColumn fx:id="tableColumnREMOVE" prefWidth="75.0" />
+          <TableColumn fx:id="tableColumnName" prefWidth="155.0" text="Nome" />
+            <TableColumn fx:id="tableColumnSemester" prefWidth="84.0" text="Semestres" />
+            <TableColumn fx:id="tableColumnStudentCount" prefWidth="72.0" text="N° Alunos" />
         </columns>
          <VBox.margin>
             <Insets left="19.0" right="19.0" />

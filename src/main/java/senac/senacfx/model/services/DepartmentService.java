@@ -33,5 +33,9 @@ public class DepartmentService {
         public void remove(Course obj){
             dao.deleteById(obj.getId());
         }
+
+    public List<Course> findAllWithStudentCount() {
+        return dao.findAllWithStudentCount();
     }
+}
 

@@ -36,13 +36,13 @@
       </Pane>
       <TableView fx:id="tableViewSeller" prefHeight="544.0" prefWidth="721.0" stylesheets="@style/tableView.css" VBox.vgrow="ALWAYS">
         <columns>
-          <TableColumn fx:id="tableColumnId" prefWidth="78.0" text="Matrícula" />
-          <TableColumn fx:id="tableColumnName" prefWidth="90.0" text="Nome" />
-            <TableColumn fx:id="tableColumnEmail" prefWidth="88.0" text="E-mail" />
-            <TableColumn fx:id="tableColumnBirthDate" prefWidth="148.0" text="Data de Nascimento" />
-            <TableColumn fx:id="tableColumnJoinDate" prefWidth="125.0" text="Data de Matrícula" />
-            <TableColumn fx:id="tableColumnCpf" minWidth="8.0" prefWidth="57.0" text="Cpf" />
-            <TableColumn fx:id="tableColumnCourse" prefWidth="75.0" text="Curso" />
+          <TableColumn fx:id="tableColumnId" prefWidth="71.0" text="Matrícula" />
+          <TableColumn fx:id="tableColumnName" prefWidth="97.0" text="Nome" />
+            <TableColumn fx:id="tableColumnEmail" prefWidth="144.0" text="E-mail" />
+            <TableColumn fx:id="tableColumnBirthDate" prefWidth="135.0" text="Data de Nascimento" />
+            <TableColumn fx:id="tableColumnJoinDate" prefWidth="119.0" text="Data de Matrícula" />
+            <TableColumn fx:id="tableColumnCpf" minWidth="8.0" prefWidth="124.0" text="Cpf" />
+            <TableColumn fx:id="tableColumnCourse" prefWidth="45.0" text="Curso" />
         </columns>
          <VBox.margin>
             <Insets left="19.0" right="19.0" />

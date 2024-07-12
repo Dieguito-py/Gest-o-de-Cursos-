@@ -31,7 +31,7 @@ public class MainViewController implements Initializable {
 
     @FXML
     public void onMenuItemHomeAction(){
-        loadView("/gui/MainView.fxml", x -> {});
+        loadView("/gui/Home.fxml", x -> {});
     }
 
     @FXML

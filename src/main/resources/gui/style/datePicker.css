@@ -7,7 +7,7 @@
 }
 
 .date-picker:hover {
-    -fx-background-color: rgba(224, 224, 224, 0.04); /* Fundo semi-transparente ao passar o mouse */
+    -fx-background-color: rgba(224, 224, 224, 0.04);
 }
 
 .date-picker:focused {
@@ -23,7 +23,7 @@
 }
 
 .date-picker .arrow-button:hover {
-    -fx-background-color: rgba(224, 224, 224, 0.04); /* Fundo semi-transparente ao passar o mouse */
+    -fx-background-color: rgba(224, 224, 224, 0.04);
 }
 
 .date-picker .arrow-button .arrow {

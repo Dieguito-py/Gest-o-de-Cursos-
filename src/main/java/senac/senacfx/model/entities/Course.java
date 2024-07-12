@@ -8,6 +8,7 @@ public class Course implements Serializable {
     private Integer id;
     private String name;
     private Integer semester;
+    private Integer studentCount;
 
     public Course() {
     }
@@ -40,6 +41,14 @@ public class Course implements Serializable {
 
     public void setSemester(Integer semester) {
         this.semester = semester;
+    }
+
+    public Integer getStudentCount() {
+        return studentCount;
+    }
+
+    public void setStudentCount(Integer studentCount) {
+        this.studentCount = studentCount;
     }
 
     @Override
