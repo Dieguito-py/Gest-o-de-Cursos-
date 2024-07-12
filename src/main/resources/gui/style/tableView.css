@@ -12,14 +12,14 @@
 .table-view .column-header-background{
     -fx-background-color: #1E1E1E;
     -fx-background-radius: 7px 7px 0px 0px;
-    -fx-background-insets: 0 11px 0 0;
-    -fx-padding: 0 0 5px 0;
+    -fx-background-insets: 0 0 0 0;
+    -fx-padding: 0 0 5x 0;
 }
 
 .table-view .column-header,
 .table-view .column-header .label{
     -fx-background-color: transparent;
-    -fx-text-fill: #ffffff; /* Cor do texto do cabeçalho */
+    -fx-text-fill: #ffffff;
     -fx-font-size: 13px;
 }
 
@@ -33,12 +33,12 @@
     -fx-text-background-color: red;
 }
 .table-row-cell:odd{
-    -fx-background-color: #2c2c2c;
+    -fx-background-color: #1E1E1E;
     -fx-background-insets: 0, 0 0 1 0;
     -fx-padding: 0.0em;
 }
 .table-row-cell:even{
-    -fx-background-color: #1E1E1E;
+    -fx-background-color: #2c2c2c;
     -fx-background-insets: 0, 0 0 1 0;
     -fx-padding: 0.0em;
 }

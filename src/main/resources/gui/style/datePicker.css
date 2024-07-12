@@ -1,0 +1,39 @@
+.date-picker {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #FFC90E transparent;
+    -fx-border-width: 2;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.date-picker:hover {
+    -fx-background-color: rgba(224, 224, 224, 0.04); /* Fundo semi-transparente ao passar o mouse */
+}
+
+.date-picker:focused {
+    -fx-border-color: transparent transparent #FFC90E transparent;
+    -fx-border-width: 2;
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0;
+    /*-fx-padding: 0 5 0 5;*/
+}
+
+.date-picker .arrow-button:hover {
+    -fx-background-color: rgba(224, 224, 224, 0.04); /* Fundo semi-transparente ao passar o mouse */
+}
+
+.date-picker .arrow-button .arrow {
+    -fx-background-color: #fadc81;
+    /*-fx-padding: 5;*/
+}
+
+.date-picker .text-field {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 12pt;
+}
