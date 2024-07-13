@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.Label;
 import senac.senacfx.model.entities.Course;
 import senac.senacfx.model.services.DepartmentService;
 
@@ -20,9 +21,19 @@ public class HomeController implements Initializable {
     @FXML
     private PieChart pieChart;
 
+    @FXML
+    private Label totalStudentsLabel;
+
+    @FXML
+    private Label totalCoursesLabel;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         fillPieChart();
+        int totalStudents = service.getTotalStudents();
+        totalStudentsLabel.setText(String.valueOf(totalStudents));
+        int totalCourses = service.getTotalCourses();
+        totalCoursesLabel.setText(String.valueOf(totalCourses));
     }
 
     public void fillPieChart() {

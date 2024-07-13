@@ -1,0 +1,13 @@
+.data0.chart-pie { -fx-pie-color: #FFC90E; }
+.data1.chart-pie { -fx-pie-color: #FFA500; }
+.data2.chart-pie { -fx-pie-color: #32CD32   ; }
+.data3.chart-pie { -fx-pie-color: #1E90FF; }
+.data4.chart-pie { -fx-pie-color: #FF4500; }
+.data5.chart-pie { -fx-pie-color: #8A2BE2; }
+.data6.chart-pie { -fx-pie-color: #fd670c; }
+.data7.chart-pie { -fx-pie-color: #FF69B4; }
+.data8.chart-pie { -fx-pie-color: #FF6347; }
+.data9.chart-pie { -fx-pie-color: #FFA07A; }
+.data10.chart-pie { -fx-pie-color: #FFDAB9; }
+
+.chart-legend { -fx-background-color: white; }

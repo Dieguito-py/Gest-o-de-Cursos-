@@ -37,5 +37,18 @@ public class DepartmentService {
     public List<Course> findAllWithStudentCount() {
         return dao.findAllWithStudentCount();
     }
+
+    public int getTotalCourses() {
+        return dao.findAll().size();
+    }
+
+    public int getTotalStudents() {
+        int totalStudents = 0;
+        List<Course> courses = dao.findAllWithStudentCount();
+        for (Course course : courses) {
+            totalStudents += course.getStudentCount();
+        }
+        return totalStudents;
+    }
 }
 
