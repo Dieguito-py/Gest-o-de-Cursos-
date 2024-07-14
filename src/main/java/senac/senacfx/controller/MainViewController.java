@@ -55,9 +55,12 @@ public class MainViewController implements Initializable {
         loadView("/gui/About.fxml", x -> {});
     }
 
+    public void loadInitialView() {
+        loadView("/gui/Home.fxml", x -> {});
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
 
     private synchronized <T> void loadView(String absoluteName, Consumer<T> initializingAction) {

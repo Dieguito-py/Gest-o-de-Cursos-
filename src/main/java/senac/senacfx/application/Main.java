@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
+import senac.senacfx.controller.MainViewController;
 
 import java.io.IOException;
 
@@ -27,6 +28,9 @@ public class Main extends Application {
             primaryStage.setTitle("Gestão de Cursos");
             primaryStage.show();
             primaryStage.setResizable(false);
+            MainViewController controller = loader.getController();
+            controller.loadInitialView();
+
         } catch (IOException e) {
             e.printStackTrace();
 
