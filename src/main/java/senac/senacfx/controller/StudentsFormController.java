@@ -93,7 +93,6 @@ public class StudentsFormController implements Initializable {
 
     @FXML
     public void onBtSaveAction(ActionEvent event) {
-        //validacao manual pois nao esta sendo usado framework para injetar dependencia
         if (entity == null){
             throw new IllegalStateException("Entidade nula");
         }
@@ -166,8 +165,22 @@ public class StudentsFormController implements Initializable {
 
     @FXML
     public void onBtRemoveAction(ActionEvent event) {
-        Utils.currentStage(event).close();
+        if (entity == null){
+            Alerts.showAlert("Erro ao remover objeto", null, "Entidade nula", Alert.AlertType.ERROR);
+        }
+        if (service == null){
+            Alerts.showAlert("Erro ao remover objeto", null, "Servico nulo", Alert.AlertType.ERROR);
+        }
+
+        try {
+            service.remove(entity);
+            notifyDataChangeListeners();
+            Utils.currentStage(event).close();
+        } catch (DbException e){
+            Alerts.showAlert("Erro ao remover objeto", null, e.getMessage(), Alert.AlertType.ERROR);
+        }
     }
+
 
 
     @Override
