@@ -7,7 +7,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+
 <VBox maxHeight="596.0" maxWidth="800.0" minHeight="300.0" minWidth="777.0" prefHeight="596.0" prefWidth="777.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="senac.senacfx.controller.AboutController">
+
+
          <children>
             <Label prefHeight="51.0" prefWidth="122.0" style="-fx-font-weight: 400; -fx-font-size: 25;" styleClass="label-sobre" text="SOBRE" textFill="WHITE">
                <font>
@@ -21,6 +24,7 @@
                </padding>
             </Label>
       <Text fill="#fdf440" strokeType="OUTSIDE" strokeWidth="0.0" text="Este projeto foi concebido como parte do projeto integrador do curso Programador de Sistemas, realizado dentro do projeto Jovem Programador, promovido pelo SENAC em parceria com o SEPROSC (Sindicato das empresas de Processamento de Dados, Software e Serviços Técnicos de Informática do estado de Santa Catarina)." textAlignment="JUSTIFY" wrappingWidth="618.68701171875">
+
          <VBox.margin>
             <Insets left="90.0" right="20.0" top="50.0" />
          </VBox.margin>
@@ -29,6 +33,7 @@
          </font>
       </Text>
       <Text fill="#fdf440" strokeType="OUTSIDE" strokeWidth="0.0" text="O objetivo do projeto é desenvolver um sistema de gestão para instituições de ensino superior para gerenciar as informações dos alunos, cursos e matrículas. " textAlignment="JUSTIFY" wrappingWidth="618.1367797851562">
+
          <VBox.margin>
             <Insets left="90.0" right="20.0" top="10.0" />
          </VBox.margin>
