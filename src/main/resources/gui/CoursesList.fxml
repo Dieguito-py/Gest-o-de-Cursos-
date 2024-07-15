@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="596.0" maxWidth="800.0" minHeight="300.0" minWidth="777.0" prefHeight="596.0" prefWidth="777.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="senac.senacfx.controller.CoursesListController">
+         <children>
+            <Label prefHeight="56.0" prefWidth="314.0" style="-fx-font-size: 25;" text="REGISTRO DE CURSOS" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="20.0" top="10.0" />
+               </padding>
+            </Label>
+      <Pane prefHeight="350.0" prefWidth="733.0" stylesheets="@style.css">
+         <children>
+             <Button fx:id="btNew" alignment="CENTER" contentDisplay="RIGHT" layoutX="699.0" layoutY="19.0" mnemonicParsing="false" onAction="#onBtNewAction" style="-fx-background-color: #FFC90E;" text="Novo" textFill="#121212" />
+            <Label layoutX="22.0" layoutY="23.0" prefHeight="35.0" prefWidth="346.0" style="-fx-font-size: 17px;" text="Visualize ou adicione novos cursos" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+      </Pane>
+      <TableView fx:id="tableViewDepartment" prefHeight="544.0" prefWidth="764.0" stylesheets="@style/tableView.css">
+        <columns>
+          <TableColumn fx:id="tableColumnId" prefWidth="75.0" text="Id" />
+          <TableColumn fx:id="tableColumnName" prefWidth="155.0" text="Nome" />
+            <TableColumn fx:id="tableColumnSemester" prefWidth="84.0" text="Semestres" />
+            <TableColumn fx:id="tableColumnStudentCount" prefWidth="72.0" text="N° Alunos" />
+        </columns>
+         <VBox.margin>
+            <Insets left="19.0" right="19.0" />
+         </VBox.margin>
+      </TableView>
+         </children>
+</VBox>

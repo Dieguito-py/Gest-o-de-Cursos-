@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
+import senac.senacfx.controller.MainViewController;
 
 import java.io.IOException;
 
@@ -18,15 +19,18 @@ public class Main extends Application {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/MainView.fxml"));
             ScrollPane scrollPane = loader.load();
 
-            //macete para a barra de cima ficar ate o fim da tela
             scrollPane.setFitToHeight(true);
             scrollPane.setFitToWidth(true);
 
-
+            scrollPane.setPrefSize(1050, 700);
             mainScene = new Scene(scrollPane);
             primaryStage.setScene(mainScene);
-            primaryStage.setTitle("Titulo do seu sistema");
+            primaryStage.setTitle("Gestão de Cursos");
             primaryStage.show();
+            primaryStage.setResizable(false);
+            MainViewController controller = loader.getController();
+            controller.loadInitialView();
+
         } catch (IOException e) {
             e.printStackTrace();
 

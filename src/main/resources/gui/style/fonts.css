@@ -1,0 +1,19 @@
+.label {
+    -fx-font-family: "Arial";
+    -fx-font-size: 23;
+    -fx-font-weight: bold;
+    -fx-text-transform: uppercase;
+}
+
+.label-body {
+    -fx-font-family: "Arial";
+    -fx-font-size: 17;
+    -fx-text-transform: uppercase;
+}
+
+.label-form {
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold;
+    -fx-font-size: 17;
+    -fx-text-transform: uppercase;
+}

@@ -5,6 +5,7 @@ import javafx.scene.Node;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
@@ -97,4 +98,7 @@ public class Utils {
         });
     }
 
+    public static Stage currentStage(MouseEvent mouseEvent) {
+        return null;
+    }
 }

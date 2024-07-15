@@ -1,0 +1,30 @@
+.custom-combo-box {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #FFC90E transparent;
+    -fx-border-width: 0 0 2px 0;
+    -fx-background-radius: 0;
+    -fx-padding: 5px;
+    -fx-text-fill: white;
+    -fx-font-size: 19px;
+}
+
+.custom-combo-box .arrow {
+    -fx-background-color: #5A5A5A;
+}
+
+.custom-combo-box .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 17px;
+}
+
+.custom-combo-box:focused {
+    -fx-border-color: transparent transparent #daac0b transparent;
+}
+
+.custom-combo-box .list-view {
+    -fx-control-inner-background: #2A2A2A;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-text-fill: white;
+}

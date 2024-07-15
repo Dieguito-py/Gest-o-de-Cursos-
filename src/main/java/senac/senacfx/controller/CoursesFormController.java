@@ -12,17 +12,16 @@ import senac.senacfx.gui.listeners.DataChangeListener;
 import senac.senacfx.gui.util.Alerts;
 import senac.senacfx.gui.util.Constraints;
 import senac.senacfx.gui.util.Utils;
-import senac.senacfx.model.entities.Department;
+import senac.senacfx.model.entities.Course;
 import senac.senacfx.model.exceptions.ValidationException;
 import senac.senacfx.model.services.DepartmentService;
 
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.*;
 
-public class DepartmentFormController implements Initializable {
+public class CoursesFormController implements Initializable {
 
-    private Department entity;
+    private Course entity;
 
     private DepartmentService service;
 
@@ -35,20 +34,22 @@ public class DepartmentFormController implements Initializable {
     private TextField txtName;
 
     @FXML
+    private TextField txtSemester;
+
+    @FXML
     private Label labelErrorName;
 
     @FXML
     private Button btSave;
 
     @FXML
-    private Button btCancel;
+    private Button btRemove;
 
-    //Contolador agora tem uma instancia do departamento
-    public void setDepartment(Department entity){
+    public void setCourse(Course entity){
         this.entity = entity;
     }
 
-    public void setDepartmentService(DepartmentService service){
+    public void setCourseService(DepartmentService service){
         this.service = service;
     }
 
@@ -58,7 +59,6 @@ public class DepartmentFormController implements Initializable {
 
     @FXML
     public void onBtSaveAction(ActionEvent event) {
-        //validacao manual pois nao esta sendo usado framework para injetar dependencia
         if (entity == null){
             throw new IllegalStateException("Entidade nula");
         }
@@ -84,8 +84,8 @@ public class DepartmentFormController implements Initializable {
         }
     }
 
-    private Department getFormData() {
-        Department obj = new Department();
+    private Course getFormData() {
+        Course obj = new Course();
 
         ValidationException exception = new ValidationException("Erro na validacao");
 
@@ -96,6 +96,8 @@ public class DepartmentFormController implements Initializable {
         }
         obj.setName(txtName.getText());
 
+        obj.setSemester(Integer.valueOf(txtSemester.getText()));
+
         if (exception.getErrors().size() > 0){
             throw exception;
         }
@@ -104,8 +106,21 @@ public class DepartmentFormController implements Initializable {
     }
 
     @FXML
-    public void onBtCancelAction(ActionEvent event) {
-        Utils.currentStage(event).close();
+    public void onbtRemoveAction(ActionEvent event) {
+        if (entity == null){
+            Alerts.showAlert("Erro ao remover objeto", null, "Entidade nula", Alert.AlertType.ERROR);
+        }
+        if (service == null){
+            Alerts.showAlert("Erro ao remover objeto", null, "Servico nulo", Alert.AlertType.ERROR);
+        }
+
+        try {
+            service.remove(entity);
+            notifyDataChangeListeners();
+            Utils.currentStage(event).close();
+        } catch (DbException e){
+            Alerts.showAlert("Erro ao remover objeto", null, e.getMessage(), Alert.AlertType.ERROR);
+        }
     }
 
 
@@ -117,6 +132,7 @@ public class DepartmentFormController implements Initializable {
     private void initializeNodes() {
         Constraints.setTextFieldInteger(txtId);
         Constraints.setTextFieldMaxLength(txtName, 30);
+        Constraints.setTextFieldMaxLength(txtSemester, 3);
 
     }
 
@@ -127,6 +143,7 @@ public class DepartmentFormController implements Initializable {
 
         txtId.setText(String.valueOf(entity.getId()));
         txtName.setText(entity.getName());
+        txtSemester.setText(String.valueOf(entity.getSemester()));
     }
 
     private void setErrorMessages(Map<String, String> errors){

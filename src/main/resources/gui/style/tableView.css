@@ -1,0 +1,80 @@
+.table-view {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+
+.table-view .corner {
+    -fx-background-color: transparent;
+}
+.table-view .column-header-background{
+    -fx-background-color: #1E1E1E;
+    -fx-background-radius: 7px 7px 0px 0px;
+    -fx-background-insets: 0 0 0 0;
+    -fx-padding: 0 0 5x 0;
+}
+
+.table-view .column-header,
+.table-view .column-header .label{
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 13px;
+}
+
+.table-view .table-cell{
+    -fx-border-color: transparent;
+    -fx-padding: 2 0 2 10px;
+    -fx-text-fill: white;
+}
+.table-row-cell:hover {
+    -fx-background-color: #1E1E1E;
+    -fx-text-background-color: red;
+}
+.table-row-cell:odd{
+    -fx-background-color: #1E1E1E;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+.table-row-cell:even{
+    -fx-background-color: #2c2c2c;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #a68b00;
+    -fx-text-fill: #000000;
+}
+
+.button
+{
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-background-color: gray;
+    -fx-background-insets: 5;
+    -fx-background-radius: 10;
+}
+
+.table-view .virtual-flow .scroll-bar:vertical,
+.table-view .virtual-flow .scroll-bar:vertical .track,
+.table-view .virtual-flow .scroll-bar:vertical .track-background,
+.table-view .virtual-flow .scroll-bar:horizontal,
+.table-view .virtual-flow .scroll-bar:horizontal .track,
+.table-view .virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .virtual-flow .scroll-bar .increment-button,
+.table-view .virtual-flow .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+    -fx-padding: 2;
+}
+
+.table-view .virtual-flow .scroll-bar:vertical .thumb{
+    -fx-background-color: #ffe95e;
+}
+.table-view .virtual-flow .scroll-bar:horizontal .thumb {
+    -fx-background-color: #ffe95e;
+}

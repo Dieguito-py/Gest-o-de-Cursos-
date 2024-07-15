@@ -70,3 +70,10 @@
     -fx-font-size: 14px;
     -fx-font-weight: bolder;
 }
+
+.titulo-main-view
+{
+    -fx-font-family: "arial";
+    -fx-font-size: 140px;
+    -fx-font-weight: bolder;
+}

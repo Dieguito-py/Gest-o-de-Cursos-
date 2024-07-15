@@ -2,18 +2,21 @@ package senac.senacfx.model.entities;
 
 import java.io.Serializable;
 
-public class Department implements Serializable {
+public class Course implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private Integer id;
     private String name;
+    private Integer semester;
+    private Integer studentCount;
 
-    public Department() {
+    public Course() {
     }
 
-    public Department(Integer id, String name) {
+    public Course(Integer id, String name, Integer semester) {
         this.id = id;
         this.name = name;
+        this.semester = semester;
     }
 
     public Integer getId() {
@@ -32,6 +35,22 @@ public class Department implements Serializable {
         this.name = name;
     }
 
+    public Integer getSemester() {
+        return semester;
+    }
+
+    public void setSemester(Integer semester) {
+        this.semester = semester;
+    }
+
+    public Integer getStudentCount() {
+        return studentCount;
+    }
+
+    public void setStudentCount(Integer studentCount) {
+        this.studentCount = studentCount;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o)
@@ -40,7 +59,7 @@ public class Department implements Serializable {
             return false;
         if (getClass() != o.getClass())
             return false;
-        Department other = (Department) o;
+        Course other = (Course) o;
         if (id == null){
             if (other.id != null)
                 return false;
@@ -60,9 +79,6 @@ public class Department implements Serializable {
 
     @Override
     public String toString() {
-        return "Department{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return name;
     }
 }

@@ -12,8 +12,8 @@ import senac.senacfx.gui.listeners.DataChangeListener;
 import senac.senacfx.gui.util.Alerts;
 import senac.senacfx.gui.util.Constraints;
 import senac.senacfx.gui.util.Utils;
-import senac.senacfx.model.entities.Department;
-import senac.senacfx.model.entities.Seller;
+import senac.senacfx.model.entities.Course;
+import senac.senacfx.model.entities.Student;
 import senac.senacfx.model.exceptions.ValidationException;
 import senac.senacfx.model.services.DepartmentService;
 import senac.senacfx.model.services.SellerService;
@@ -24,9 +24,9 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.*;
 
-public class SellerFormController implements Initializable {
+public class StudentsFormController implements Initializable {
 
-    private Seller entity;
+    private Student entity;
 
     private SellerService service;
 
@@ -47,10 +47,13 @@ public class SellerFormController implements Initializable {
     private DatePicker dpBirthDate;
 
     @FXML
-    private TextField txtBaseSalary;
+    private DatePicker dpJoinDate;
 
     @FXML
-    private ComboBox<Department> comboBoxDepartment;
+    private TextField txtCpf;
+
+    @FXML
+    private ComboBox<Course> comboBoxDepartment;
     @FXML
     private Label labelErrorName;
 
@@ -61,18 +64,21 @@ public class SellerFormController implements Initializable {
     private Label labelErrorBirthDate;
 
     @FXML
-    private Label labelErrorBaseSalary;
+    private Label labelErrorJoinDate;
+
+    @FXML
+    private Label labelErrorCpf;
 
     @FXML
     private Button btSave;
 
     @FXML
-    private Button btCancel;
+    private Button btRemove;
 
-    private ObservableList<Department> obsList;
+    private ObservableList<Course> obsList;
 
     //Contolador agora tem uma instancia do departamento
-    public void setSeller(Seller entity){
+    public void setSeller(Student entity){
         this.entity = entity;
     }
 
@@ -87,7 +93,6 @@ public class SellerFormController implements Initializable {
 
     @FXML
     public void onBtSaveAction(ActionEvent event) {
-        //validacao manual pois nao esta sendo usado framework para injetar dependencia
         if (entity == null){
             throw new IllegalStateException("Entidade nula");
         }
@@ -113,8 +118,8 @@ public class SellerFormController implements Initializable {
         }
     }
 
-    private Seller getFormData() {
-        Seller obj = new Seller();
+    private Student getFormData() {
+        Student obj = new Student();
 
         ValidationException exception = new ValidationException("Erro na validacao");
 
@@ -137,12 +142,19 @@ public class SellerFormController implements Initializable {
             obj.setBirthDate(Date.from(instant));
         }
 
-        if (txtBaseSalary.getText() == null || txtBaseSalary.getText().trim().equals("")){
-            exception.addError("baseSalary", "campo nao pode ser vazio");
+        if (dpJoinDate.getValue() == null){
+            exception.addError("joinDate", "data nao selecionada");
+        } else {
+            Instant instant = Instant.from(dpJoinDate.getValue().atStartOfDay(ZoneId.systemDefault()));
+            obj.setJoinDate(Date.from(instant));
         }
-        obj.setBaseSalary(Utils.tryParseToDouble(txtBaseSalary.getText()));
 
-        obj.setDepartment(comboBoxDepartment.getValue());
+        if (txtCpf.getText() == null || txtCpf.getText().trim().equals("")){
+            exception.addError("cpf", "campo nao pode ser vazio");
+        }
+        obj.setCpf(txtCpf.getText());
+
+        obj.setCourse(comboBoxDepartment.getValue());
 
         if (exception.getErrors().size() > 0){
             throw exception;
@@ -152,9 +164,23 @@ public class SellerFormController implements Initializable {
     }
 
     @FXML
-    public void onBtCancelAction(ActionEvent event) {
-        Utils.currentStage(event).close();
+    public void onBtRemoveAction(ActionEvent event) {
+        if (entity == null){
+            Alerts.showAlert("Erro ao remover objeto", null, "Entidade nula", Alert.AlertType.ERROR);
+        }
+        if (service == null){
+            Alerts.showAlert("Erro ao remover objeto", null, "Servico nulo", Alert.AlertType.ERROR);
+        }
+
+        try {
+            service.remove(entity);
+            notifyDataChangeListeners();
+            Utils.currentStage(event).close();
+        } catch (DbException e){
+            Alerts.showAlert("Erro ao remover objeto", null, e.getMessage(), Alert.AlertType.ERROR);
+        }
     }
+
 
 
     @Override
@@ -165,10 +191,10 @@ public class SellerFormController implements Initializable {
     private void initializeNodes() {
         Constraints.setTextFieldInteger(txtId);
         Constraints.setTextFieldMaxLength(txtName, 70);
-        Constraints.setTextFieldDouble(txtBaseSalary);
         Constraints.setTextFieldMaxLength(txtEmail, 60);
         Utils.formatDatePicker(dpBirthDate, "dd/MM/yyyy");
-
+        Utils.formatDatePicker(dpJoinDate, "dd/MM/yyyy");
+        Constraints.setTextFieldMaxLength(txtCpf, 60);
         initializeComboBoxDepartment();
 
     }
@@ -182,19 +208,20 @@ public class SellerFormController implements Initializable {
         txtId.setText(String.valueOf(entity.getId()));
         txtName.setText(entity.getName());
         txtEmail.setText(entity.getEmail());
-
+        txtCpf.setText(entity.getCpf());
         Locale.setDefault(Locale.US);
 
+        if (entity.getJoinDate() != null) {
+            dpJoinDate.setValue(LocalDate.ofInstant(entity.getJoinDate().toInstant(), ZoneId.systemDefault()));
+        }
         if (entity.getBirthDate() != null) {
             dpBirthDate.setValue(LocalDate.ofInstant(entity.getBirthDate().toInstant(), ZoneId.systemDefault()));
         }
 
-        txtBaseSalary.setText(String.format("%.2f", entity.getBaseSalary()));
-
-        if (entity.getDepartment() == null) {
+        if (entity.getCourse() == null) {
             comboBoxDepartment.getSelectionModel().selectFirst();
         } else {
-            comboBoxDepartment.setValue(entity.getDepartment());
+            comboBoxDepartment.setValue(entity.getCourse());
         }
 
     }
@@ -205,7 +232,7 @@ public class SellerFormController implements Initializable {
             throw new IllegalStateException("DepartmentService was null");
         }
 
-        List<Department> list = departmentService.findAll();
+        List<Course> list = departmentService.findAll();
         obsList = FXCollections.observableArrayList(list);
         comboBoxDepartment.setItems(obsList);
     }
@@ -216,15 +243,16 @@ public class SellerFormController implements Initializable {
         labelErrorName.setText((fields.contains("name") ? errors.get("name") : ""));
         labelErrorEmail.setText((fields.contains("email") ? errors.get("email") : ""));
         labelErrorBirthDate.setText((fields.contains("birthDate") ? errors.get("birthDate") : ""));
-        labelErrorBaseSalary.setText((fields.contains("baseSalary") ? errors.get("baseSalary") : ""));
+        labelErrorJoinDate.setText((fields.contains("joinDate") ? errors.get("joinDate") : ""));
+        labelErrorCpf.setText((fields.contains("cpf") ? errors.get("cpf") : ""));
         labelErrorName.getStyleClass().add("button");
 
     }
 
     private void initializeComboBoxDepartment() {
-        Callback<ListView<Department>, ListCell<Department>> factory = lv -> new ListCell<Department>() {
+        Callback<ListView<Course>, ListCell<Course>> factory = lv -> new ListCell<Course>() {
             @Override
-            protected void updateItem(Department item, boolean empty) {
+            protected void updateItem(Course item, boolean empty) {
                 super.updateItem(item, empty);
                 setText(empty ? "" : item.getName());
             }
