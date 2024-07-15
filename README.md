@@ -29,7 +29,7 @@ Este projeto é um sistema de gestão de cursos desenvolvido como parte do Proje
 - **Maven**
 
 ## Installation
-- **1**Clone o repositório:
+- **1.** Clone o repositório:
 
 ```
 git clone https://github.com/Dieguito-py/Gestao-de-Cursos.git
