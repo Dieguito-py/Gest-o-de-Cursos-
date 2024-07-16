@@ -42,3 +42,11 @@ git clone https://github.com/Dieguito-py/Gestao-de-Cursos.git
 Maven:mvn clean install
 mvn javafx:run
 ```
+## Screenshots
+
+![App Screenshot](https://i.postimg.cc/J07R4rsc/image.png)
+![App Screenshot](https://i.postimg.cc/SKMys1DR/image.png)
+![App Screenshot](https://i.postimg.cc/fLS51mz6/image.png)
+![App Screenshot](https://i.postimg.cc/0yLzcw46/image.png)
+![App Screenshot](https://i.postimg.cc/2yPsPCNx/image.png)
+![App Screenshot](https://i.postimg.cc/8z8HrjbH/image.png)
